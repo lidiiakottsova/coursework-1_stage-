@@ -3,10 +3,11 @@
 #include <string.h>
 #include <math.h>
 
-int main()
+int main(int argc, char * argv[])
 {
-  FILE * fin  = fopen("my.ini", "r");   
-  FILE * fout = fopen("my.cfg", "w"); 
+  argc=2;
+  FILE * fin  = fopen(argv[1], "r");   
+  FILE * fout = fopen(argv[2], "w"); 
   char str_1[100];
   char str_2[100];
   char str_3[100];
