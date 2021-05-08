@@ -2,6 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#include <errno.h>
+
+void exit (int status);
+void perror (const char * msg);
 
 FILE * fout ;
 
@@ -39,6 +43,10 @@ int main (int argc, char * argv[])
   argc = 3;
   FILE * fin = fopen(argv[1],"r");
   fout = fopen(argv[2],"w");
+  if (fin == NULL) {
+    perror(argv[1]);
+    exit(errno);
+  }
   char frst_str[100];
   char scnd_str[100] = {};
   while (fgets(frst_str, 100, fin)) {
